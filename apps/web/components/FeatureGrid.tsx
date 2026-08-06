@@ -27,16 +27,17 @@ const items = [
 
 export function FeatureGrid() {
   return (
-    <section id="features" className="container" style={{ padding: '2rem 0 0.5rem' }}>
-      <div style={{ marginBottom: '1rem' }}>
+    <section id="features" className="container">
+      <div className="section-headline" style={{ marginBottom: '1.5rem' }}>
         <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Capacidades de la plataforma</p>
-        <h2 style={{ margin: '0.35rem 0 0.5rem', fontSize: '1.7rem' }}>Una solución integral para evaluar, priorizar y comunicar mejoras digitales</h2>
+        <h2 style={{ margin: '0.5rem 0 0.75rem', fontSize: '1.95rem' }}>Una solución integral para evaluar, priorizar y comunicar mejoras digitales</h2>
       </div>
       <div className="grid grid-3">
         {items.map((item) => (
-          <article key={item.title} className="card" style={{ padding: '1.2rem' }}>
-            <h3 style={{ marginTop: 0 }}>{item.title}</h3>
-            <p style={{ color: 'var(--muted)', marginBottom: 0, lineHeight: 1.75 }}>{item.text}</p>
+          <article key={item.title} className="card feature-card" style={{ padding: '1.4rem' }}>
+            <div className="status-chip">✓</div>
+            <h3 style={{ marginTop: '0.85rem' }}>{item.title}</h3>
+            <p style={{ color: 'var(--muted)', marginBottom: 0, lineHeight: 1.8 }}>{item.text}</p>
           </article>
         ))}
       </div>

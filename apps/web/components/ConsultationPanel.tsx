@@ -309,72 +309,78 @@ export function ConsultationPanel() {
 
   return (
     <section className="container" style={{ padding: '2rem 0 3rem' }}>
-      <div className="card" style={{ padding: '1.5rem' }}>
-        <div style={{ display: 'grid', gap: '1rem' }}>
-          <div className="card" style={{ padding: '1.1rem 1.2rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(94,234,212,0.16)' }}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '0.75rem' }}>
+      <div className="card" style={{ padding: '1.75rem' }}>
+        <div style={{ display: 'grid', gap: '1.25rem' }}>
+          <div className="card" style={{ padding: '1.2rem 1.3rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(94,234,212,0.16)' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
               {['Diagnóstico ejecutivo', 'Recomendaciones priorizadas', 'Informe listo para presentar'].map((chip) => (
-                <span key={chip} style={{ borderRadius: '999px', padding: '0.35rem 0.7rem', background: 'rgba(94,234,212,0.12)', color: 'var(--brand)', fontSize: '0.8rem', fontWeight: 700 }}>
+                <span key={chip} className="info-chip">
                   {chip}
                 </span>
               ))}
             </div>
             <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em' }}>Consultoría web para negocios</p>
-            <h2 style={{ margin: '0.35rem 0 0.6rem', fontSize: '1.8rem' }}>Convierte la evaluación de una web en un diagnóstico ejecutivo y profesional</h2>
+            <h2 style={{ margin: '0.35rem 0 0.6rem', fontSize: '1.95rem' }}>Convierte la evaluación de una web en un diagnóstico ejecutivo y profesional</h2>
             <p style={{ color: 'var(--muted)', margin: 0 }}>
               El flujo recoge datos clave de la empresa, analiza la web y entrega un informe estructurado para presentar a un cliente, inversionista o referente interno.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '0.9rem' }}>
+          <form onSubmit={handleSubmit} className="form-grid">
             <div className="grid grid-2">
-              <label style={{ display: 'grid', gap: '0.35rem' }}>
-                <span style={{ fontSize: '0.92rem', color: 'var(--muted)' }}>Nombre de la empresa</span>
+              <label className="form-label">
+                <span>Nombre de la empresa</span>
                 <input
+                  className="input-field"
                   value={companyName}
                   onChange={(event) => setCompanyName(event.target.value)}
                   placeholder="Nombre de la empresa o pyme"
-                  style={{ padding: '0.95rem 1rem', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.22)', background: 'rgba(10, 17, 31, 0.8)', color: 'var(--text)', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.04)' }}
                 />
               </label>
-              <label style={{ display: 'grid', gap: '0.35rem' }}>
-                <span style={{ fontSize: '0.92rem', color: 'var(--muted)' }}>URL del sitio</span>
+              <label className="form-label">
+                <span>URL del sitio</span>
                 <input
+                  className="input-field"
                   value={url}
                   onChange={(event) => setUrl(event.target.value)}
                   placeholder="https://empresa.com"
-                  style={{ padding: '0.95rem 1rem', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.22)', background: 'rgba(10, 17, 31, 0.8)', color: 'var(--text)', boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.04)' }}
                 />
               </label>
             </div>
 
             <div className="grid grid-2">
-              <CustomSelect
-                options={[
-                  { value: '', label: 'Selecciona el sector' },
-                  { value: 'Retail', label: 'Retail' },
-                  { value: 'Salud', label: 'Salud' },
-                  { value: 'Educación', label: 'Educación' },
-                  { value: 'Servicios', label: 'Servicios' },
-                  { value: 'E-commerce', label: 'E-commerce' },
-                ]}
-                value={sector}
-                onChange={(v) => setSector(v)}
-              />
-              <CustomSelect
-                options={[
-                  { value: '', label: 'Objetivo principal' },
-                  { value: 'Vender más', label: 'Vender más' },
-                  { value: 'Captar leads', label: 'Captar leads' },
-                  { value: 'Mostrar confianza', label: 'Mostrar confianza' },
-                  { value: 'Mejorar marca', label: 'Mejorar marca' },
-                ]}
-                value={goal}
-                onChange={(v) => setGoal(v)}
-              />
+              <label className="form-label">
+                <span>Sector</span>
+                <CustomSelect
+                  options={[
+                    { value: 'Retail', label: 'Retail' },
+                    { value: 'Salud', label: 'Salud' },
+                    { value: 'Educación', label: 'Educación' },
+                    { value: 'Servicios', label: 'Servicios' },
+                    { value: 'E-commerce', label: 'E-commerce' },
+                  ]}
+                  value={sector}
+                  onChange={(v) => setSector(v)}
+                  placeholder="Selecciona el sector"
+                />
+              </label>
+              <label className="form-label">
+                <span>Objetivo</span>
+                <CustomSelect
+                  options={[
+                    { value: 'Vender más', label: 'Vender más' },
+                    { value: 'Captar leads', label: 'Captar leads' },
+                    { value: 'Mostrar confianza', label: 'Mostrar confianza' },
+                    { value: 'Mejorar marca', label: 'Mejorar marca' },
+                  ]}
+                  value={goal}
+                  onChange={(v) => setGoal(v)}
+                  placeholder="Selecciona el objetivo"
+                />
+              </label>
             </div>
 
-            <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
               <button className="btn btn-primary" type="submit" disabled={isGenerating}>
                 {isGenerating ? 'Generando diagnóstico ejecutivo…' : 'Generar diagnóstico profesional'}
               </button>
@@ -389,16 +395,16 @@ export function ConsultationPanel() {
                 </button>
               ) : null}
             </div>
-            {error ? <p style={{ color: '#fda4af', margin: 0 }}>{error}</p> : null}
+            {error ? <p style={{ color: '#fda4af', margin: 0 }} aria-live="polite">{error}</p> : null}
           </form>
 
           {savedReports.length ? (
             <div className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
               <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700 }}>Historial de informes guardados</p>
-              <p style={{ color: 'var(--muted)', margin: '0.3rem 0 0.5rem' }}>Se conservan los últimos {savedReports.length} diagnósticos para seguimiento y comparación.</p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+              <p style={{ color: 'var(--muted)', margin: '0.35rem 0 0.6rem' }}>Se conservan los últimos {savedReports.length} diagnósticos para seguimiento y comparación.</p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem' }}>
                 {savedReports.map((item) => (
-                  <span key={item.id} style={{ borderRadius: '999px', padding: '0.35rem 0.65rem', background: 'rgba(255,255,255,0.08)', color: 'var(--text)', fontSize: '0.85rem' }}>
+                  <span key={item.id} className="report-chip">
                     {item.companyName} • {item.score}/100
                   </span>
                 ))}
@@ -407,20 +413,20 @@ export function ConsultationPanel() {
           ) : null}
 
           {report ? (
-            <div className="grid grid-2" style={{ marginTop: '0.5rem' }}>
-              <article className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+            <div className="grid grid-2" style={{ gap: '1rem' }}>
+              <article className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
                 <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700 }}>Resultado ejecutivo</p>
-                <h3 style={{ margin: '0.35rem 0' }}>{report.score}/100</h3>
+                <h3 style={{ margin: '0.5rem 0 0.6rem' }}>{report.score}/100</h3>
                 <p style={{ color: 'var(--muted)', margin: 0 }}>{scoreLabel}</p>
-                <p style={{ color: 'var(--muted)', margin: '0.45rem 0 0' }}>{report.executiveSummary || 'Resumen ejecutivo preparado para presentación.'}</p>
+                <p style={{ color: 'var(--muted)', margin: '0.65rem 0 0' }}>{report.executiveSummary || 'Resumen ejecutivo preparado para presentación.'}</p>
               </article>
-              <article className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+              <article className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
                 <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700 }}>Enfoque prioritario</p>
-                <h3 style={{ margin: '0.35rem 0' }}>{report.priorityFocus || report.goal}</h3>
+                <h3 style={{ margin: '0.55rem 0 0.6rem' }}>{report.priorityFocus || report.goal}</h3>
                 <p style={{ color: 'var(--muted)', margin: 0 }}>Confianza detectada: {report.confidence || 'Media'}</p>
-                <p style={{ color: 'var(--muted)', margin: '0.45rem 0 0' }}>{report.sector} • {report.goal}</p>
+                <p style={{ color: 'var(--muted)', margin: '0.55rem 0 0' }}>{report.sector} • {report.goal}</p>
                 {report.personalizationProfile ? (
-                  <div style={{ marginTop: '0.7rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', borderRadius: '999px', padding: '0.35rem 0.65rem', background: 'rgba(94,234,212,0.12)', color: 'var(--brand)', fontSize: '0.8rem', fontWeight: 700 }}>
+                  <div className="status-chip" style={{ marginTop: '0.75rem' }}>
                     Personalizado • Perfil {report.personalizationProfile.variant + 1}
                   </div>
                 ) : null}
@@ -429,16 +435,16 @@ export function ConsultationPanel() {
           ) : null}
 
           {report ? (
-            <div className="grid grid-2">
-              <article className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+            <div className="grid grid-2" style={{ gap: '1rem' }}>
+              <article className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
                 <h3 style={{ marginTop: 0 }}>Métricas clave</h3>
-                <div style={{ display: 'grid', gap: '0.7rem' }}>
+                <div style={{ display: 'grid', gap: '0.8rem' }}>
                   {report.metrics.map((metric) => {
                     const numericValue = Number(metric.value.split('/')[0]);
                     const width = `${Math.max(12, Math.min(100, numericValue))}%`;
                     return (
                       <div key={metric.label}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.2rem', color: 'var(--muted)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem', color: 'var(--muted)' }}>
                           <span>{metric.label}</span>
                           <strong style={{ color: 'var(--text)' }}>{metric.value}</strong>
                         </div>
@@ -450,11 +456,11 @@ export function ConsultationPanel() {
                   })}
                 </div>
               </article>
-              <article className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+              <article className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
                 <h3 style={{ marginTop: 0 }}>Hallazgos profesionales</h3>
-                <ul style={{ color: 'var(--muted)', lineHeight: 1.8 }}>
+                <ul style={{ color: 'var(--muted)', lineHeight: 1.8, margin: 0, paddingLeft: '1.1rem' }}>
                   {report.findings.map((item) => (
-                    <li key={item.title}>
+                    <li key={item.title} style={{ marginBottom: '0.55rem' }}>
                       <strong style={{ color: 'var(--text)' }}>{item.title}</strong> — {item.detail}
                     </li>
                   ))}
@@ -465,28 +471,28 @@ export function ConsultationPanel() {
 
           {report ? (
             <>
-              <div className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+              <div className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
                 <h3 style={{ marginTop: 0 }}>Observaciones únicas para esta empresa</h3>
-                <ul style={{ color: 'var(--muted)', lineHeight: 1.8 }}>
+                <ul style={{ color: 'var(--muted)', lineHeight: 1.8, margin: 0, paddingLeft: '1.1rem' }}>
                   {(report.uniqueObservations || []).map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item} style={{ marginBottom: '0.5rem' }}>{item}</li>
                   ))}
                 </ul>
               </div>
-              <div className="grid grid-2">
-                <article className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+              <div className="grid grid-2" style={{ gap: '1rem' }}>
+                <article className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
                   <h3 style={{ marginTop: 0 }}>Recomendaciones accionables</h3>
-                  <ul style={{ color: 'var(--muted)', lineHeight: 1.8 }}>
+                  <ul style={{ color: 'var(--muted)', lineHeight: 1.8, margin: 0, paddingLeft: '1.1rem' }}>
                     {report.recommendations.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item} style={{ marginBottom: '0.55rem' }}>{item}</li>
                     ))}
                   </ul>
                 </article>
-                <article className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+                <article className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
                   <h3 style={{ marginTop: 0 }}>Próximos pasos</h3>
-                  <ul style={{ color: 'var(--muted)', lineHeight: 1.8 }}>
+                  <ul style={{ color: 'var(--muted)', lineHeight: 1.8, margin: 0, paddingLeft: '1.1rem' }}>
                     {report.nextSteps.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item} style={{ marginBottom: '0.55rem' }}>{item}</li>
                     ))}
                   </ul>
                 </article>

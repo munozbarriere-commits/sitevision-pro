@@ -9,9 +9,41 @@ export default function HomePage() {
     <main>
       <Navbar />
       <Hero />
+
+      <section className="container" style={{ padding: '2rem 0' }}>
+        <div style={{ marginBottom: '1rem' }}>
+          <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Cómo trabajamos</p>
+          <h2 style={{ margin: '0.35rem 0 0.75rem', fontSize: '1.9rem' }}>Un proceso claro para convertir hallazgos técnicos en decisiones estratégicas</h2>
+          <p style={{ color: 'var(--muted)', margin: 0, lineHeight: 1.8 }}>
+            Desde el análisis de datos hasta la recomendación ejecutiva, el flujo está pensado para que equipos de marketing, producto y liderazgo encuentren el valor sin perderse en el detalle técnico.
+          </p>
+        </div>
+        <div className="grid grid-3">
+          <div className="card" style={{ padding: '1.25rem' }}>
+            <h3 style={{ marginTop: 0 }}>Descubre oportunidades</h3>
+            <p style={{ color: 'var(--muted)', marginBottom: 0, lineHeight: 1.75 }}>
+              Identificamos los puntos de mejora más relevantes en rendimiento, SEO, UX, accesibilidad y conversión.
+            </p>
+          </div>
+          <div className="card" style={{ padding: '1.25rem' }}>
+            <h3 style={{ marginTop: 0 }}>Prioriza con criterio</h3>
+            <p style={{ color: 'var(--muted)', marginBottom: 0, lineHeight: 1.75 }}>
+              Ordenamos las acciones por impacto y facilidad de ejecución para que cada recomendación tenga sentido comercial.
+            </p>
+          </div>
+          <div className="card" style={{ padding: '1.25rem' }}>
+            <h3 style={{ marginTop: 0 }}>Comunica con fuerza</h3>
+            <p style={{ color: 'var(--muted)', marginBottom: 0, lineHeight: 1.75 }}>
+              Generamos un informe listo para presentar que explica el “qué”, el “por qué” y el “cómo” a públicos ejecutivos.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <FeatureGrid />
       <ConsultationPanel />
       <InsightsPanel />
+
       <section id="demo" className="container" style={{ padding: '2rem 0 4rem' }}>
         <div className="card" style={{ padding: '1.5rem', display: 'grid', gap: '1rem' }}>
           <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Demostración de valor</p>
