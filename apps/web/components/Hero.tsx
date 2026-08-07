@@ -44,7 +44,7 @@ export function Hero({ report }: HeroProps) {
           </p>
 
           <div className="hero-actions">
-            <Link href="#demo" className="btn btn-primary">Probar demo</Link>
+            <Link href="#demo" className="btn btn-primary">Solicitar diagnóstico</Link>
             <Link href="#features" className="btn btn-secondary">Explorar capacidades</Link>
           </div>
 
