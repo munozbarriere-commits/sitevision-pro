@@ -313,7 +313,7 @@ export function ConsultationPanel({ onReportGenerated }: ConsultationPanelProps)
   }, [report]);
 
   return (
-    <section className="container" style={{ padding: '2rem 0 3rem' }}>
+    <section id="diagnostico" className="container" style={{ padding: '2rem 0 3rem' }}>
       <div className="card" style={{ padding: '1.75rem' }}>
         <div style={{ display: 'grid', gap: '1.25rem' }}>
           <div className="card" style={{ padding: '1.2rem 1.3rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(94,234,212,0.16)' }}>
