@@ -10,11 +10,11 @@ export default function HomePage() {
       <Navbar />
       <Hero />
 
-      <section className="container" style={{ padding: '2rem 0' }}>
+      <section className="container section-split">
         <div style={{ marginBottom: '1rem' }}>
           <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Cómo trabajamos</p>
           <h2 style={{ margin: '0.35rem 0 0.75rem', fontSize: '1.9rem' }}>Un proceso claro para convertir hallazgos técnicos en decisiones estratégicas</h2>
-          <p style={{ color: 'var(--muted)', margin: 0, lineHeight: 1.8 }}>
+          <p className="section-copy">
             Desde el análisis de datos hasta la recomendación ejecutiva, el flujo está pensado para que equipos de marketing, producto y liderazgo encuentren el valor sin perderse en el detalle técnico.
           </p>
         </div>
@@ -44,19 +44,19 @@ export default function HomePage() {
       <ConsultationPanel />
       <InsightsPanel />
 
-      <section id="demo" className="container" style={{ padding: '2rem 0 4rem' }}>
-        <div className="card" style={{ padding: '1.5rem', display: 'grid', gap: '1rem' }}>
+      <section id="demo" className="container section-split">
+        <div className="card panel-callout" style={{ padding: '1.5rem', display: 'grid', gap: '1rem' }}>
           <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Demostración de valor</p>
           <h2 style={{ margin: 0 }}>Un flujo de diagnóstico completo, claro y listo para presentar</h2>
           <p style={{ color: 'var(--muted)', margin: 0, lineHeight: 1.8 }}>
             El sistema reúne información del negocio, del sitio y del contexto de la audiencia para convertir un diagnóstico técnico en una recomendación estratégica de alto nivel. Estas vistas están pensadas para mostrar el valor de manera profesional, tanto a clientes como a equipos internos.
           </p>
-          <div className="grid grid-2">
-            <div className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+          <div className="grid demo-grid">
+            <div className="card" style={{ padding: '1rem' }}>
               <h3 style={{ marginTop: 0 }}>Proyecto activo</h3>
               <p style={{ color: 'var(--muted)', marginBottom: 0 }}>Landing de SaaS B2B con foco en conversión, confianza y credibilidad.</p>
             </div>
-            <div className="card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)' }}>
+            <div className="card" style={{ padding: '1rem' }}>
               <h3 style={{ marginTop: 0 }}>Último informe</h3>
               <p style={{ color: 'var(--muted)', marginBottom: 0 }}>Generado recientemente con una estructura ejecutiva y recomendaciones priorizadas.</p>
             </div>

@@ -26,7 +26,7 @@ export function Hero() {
             SiteVision Pro combina análisis técnico, experiencia de usuario, posicionamiento y estrategia comercial para entregar diagnósticos claros, accionables y listos para presentar a tu equipo o cliente.
           </p>
 
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+          <div className="hero-actions">
             <Link href="#demo" className="btn btn-primary">Probar demo</Link>
             <Link href="#features" className="btn btn-secondary">Explorar capacidades</Link>
           </div>
@@ -38,7 +38,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="highlight-card">
+        <div className="card hero-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
             <div>
               <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700 }}>Madurez digital</p>

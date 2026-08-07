@@ -413,8 +413,8 @@ export function ConsultationPanel() {
           ) : null}
 
           {report ? (
-            <div className="grid grid-2" style={{ gap: '1rem' }}>
-              <article className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
+            <div className="report-grid grid grid-2" style={{ gap: '1rem' }}>
+              <article className="card report-card" style={{ padding: '1.2rem' }}>
                 <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700 }}>Resultado ejecutivo</p>
                 <h3 style={{ margin: '0.5rem 0 0.6rem' }}>{report.score}/100</h3>
                 <p style={{ color: 'var(--muted)', margin: 0 }}>{scoreLabel}</p>
@@ -435,8 +435,8 @@ export function ConsultationPanel() {
           ) : null}
 
           {report ? (
-            <div className="grid grid-2" style={{ gap: '1rem' }}>
-              <article className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
+            <div className="report-grid grid grid-2" style={{ gap: '1rem' }}>
+              <article className="card report-card" style={{ padding: '1.2rem' }}>
                 <h3 style={{ marginTop: 0 }}>Métricas clave</h3>
                 <div style={{ display: 'grid', gap: '0.8rem' }}>
                   {report.metrics.map((metric) => {
@@ -471,7 +471,7 @@ export function ConsultationPanel() {
 
           {report ? (
             <>
-              <div className="card report-card" style={{ padding: '1.2rem', background: 'rgba(255,255,255,0.03)' }}>
+              <div className="card report-card" style={{ padding: '1.2rem' }}>
                 <h3 style={{ marginTop: 0 }}>Observaciones únicas para esta empresa</h3>
                 <ul style={{ color: 'var(--muted)', lineHeight: 1.8, margin: 0, paddingLeft: '1.1rem' }}>
                   {(report.uniqueObservations || []).map((item) => (
