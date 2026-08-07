@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { FeatureGrid } from '@/components/FeatureGrid';
@@ -5,6 +8,8 @@ import { InsightsPanel } from '@/components/InsightsPanel';
 import { ConsultationPanel } from '@/components/ConsultationPanel';
 
 export default function HomePage() {
+  const [activeReport, setActiveReport] = useState<any>(null);
+
   return (
     <main>
       <div className="main-background">
@@ -14,7 +19,7 @@ export default function HomePage() {
       </div>
       <div className="main-content">
         <Navbar />
-        <Hero />
+        <Hero report={activeReport} />
 
         <section className="container section-split">
         <div style={{ marginBottom: '1rem' }}>
@@ -47,7 +52,7 @@ export default function HomePage() {
       </section>
 
       <FeatureGrid />
-      <ConsultationPanel />
+      <ConsultationPanel onReportGenerated={setActiveReport} />
       <InsightsPanel />
 
       <section id="demo" className="container section-split">

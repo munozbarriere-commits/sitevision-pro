@@ -84,7 +84,11 @@ const saveReportToHistory = (report: ReportData) => {
   window.localStorage.setItem(REPORT_HISTORY_KEY, JSON.stringify(next));
 };
 
-export function ConsultationPanel() {
+type ConsultationPanelProps = {
+  onReportGenerated?: (report: ReportData) => void;
+};
+
+export function ConsultationPanel({ onReportGenerated }: ConsultationPanelProps) {
   const [companyName, setCompanyName] = useState('');
   const [url, setUrl] = useState('');
   const [sector, setSector] = useState('');
@@ -124,6 +128,7 @@ export function ConsultationPanel() {
 
       const nextReport = data as ReportData;
       setReport(nextReport);
+      onReportGenerated?.(nextReport);
       saveReportToHistory(nextReport);
       setSavedReports(readStoredReports());
     } catch (err) {

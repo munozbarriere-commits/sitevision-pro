@@ -1,6 +1,23 @@
 import Link from 'next/link';
 
-export function Hero() {
+type HeroProps = {
+  report?: {
+    score: number;
+    metrics: Array<{ label: string; value: string }>;
+  } | null;
+};
+
+const defaultMetrics = [
+  { label: 'Rendimiento', value: '0%' },
+  { label: 'SEO', value: '0%' },
+  { label: 'Accesibilidad', value: '0%' },
+  { label: 'Conversión', value: '0%' },
+];
+
+export function Hero({ report }: HeroProps) {
+  const score = report?.score ?? 0;
+  const metrics = report?.metrics?.length ? report.metrics : defaultMetrics;
+
   return (
     <section className="container hero-section">
       <div className="card hero-grid">
@@ -42,7 +59,7 @@ export function Hero() {
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
             <div>
               <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700 }}>Madurez digital</p>
-              <strong style={{ fontSize: '2.8rem', display: 'block', marginTop: '0.55rem' }}>87/100</strong>
+              <strong style={{ fontSize: '2.8rem', display: 'block', marginTop: '0.55rem' }}>{score}/100</strong>
             </div>
             <div style={{ color: 'var(--muted)', textAlign: 'right' }}>
               <p style={{ margin: 0 }}>Evaluación integral</p>
@@ -51,19 +68,14 @@ export function Hero() {
           </div>
 
           <div style={{ height: '12px', background: 'rgba(255,255,255,0.08)', borderRadius: '999px', overflow: 'hidden' }}>
-            <div style={{ width: '87%', height: '100%', background: 'linear-gradient(90deg, var(--brand), var(--brand-2))' }} />
+            <div style={{ width: `${score}%`, height: '100%', background: 'linear-gradient(90deg, var(--brand), var(--brand-2))', transition: 'width 220ms ease' }} />
           </div>
 
           <div style={{ marginTop: '1.3rem', display: 'grid', gap: '0.85rem' }}>
-            {[
-              ['Rendimiento', '92%'],
-              ['SEO', '88%'],
-              ['Accesibilidad', '84%'],
-              ['Conversión', '90%'],
-            ].map(([label, value]) => (
-              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--muted)' }}>
-                <span>{label}</span>
-                <strong style={{ color: 'var(--text)' }}>{value}</strong>
+            {metrics.map((metric) => (
+              <div key={metric.label} style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--muted)' }}>
+                <span>{metric.label}</span>
+                <strong style={{ color: 'var(--text)' }}>{metric.value}</strong>
               </div>
             ))}
           </div>
