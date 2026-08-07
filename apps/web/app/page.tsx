@@ -7,10 +7,16 @@ import { ConsultationPanel } from '@/components/ConsultationPanel';
 export default function HomePage() {
   return (
     <main>
-      <Navbar />
-      <Hero />
+      <div className="main-background">
+        <span className="background-blob blob-1" />
+        <span className="background-blob blob-2" />
+        <span className="background-blob blob-3" />
+      </div>
+      <div className="main-content">
+        <Navbar />
+        <Hero />
 
-      <section className="container section-split">
+        <section className="container section-split">
         <div style={{ marginBottom: '1rem' }}>
           <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Cómo trabajamos</p>
           <h2 style={{ margin: '0.35rem 0 0.75rem', fontSize: '1.9rem' }}>Un proceso claro para convertir hallazgos técnicos en decisiones estratégicas</h2>
@@ -45,7 +51,10 @@ export default function HomePage() {
       <InsightsPanel />
 
       <section id="demo" className="container section-split">
-        <div className="card panel-callout" style={{ padding: '1.5rem', display: 'grid', gap: '1rem' }}>
+        <div className="card panel-callout" style={{ padding: '1.5rem', display: 'grid', gap: '1rem', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at top right, rgba(94,234,212,0.12), transparent 35%)', pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at bottom left, rgba(96,165,250,0.08), transparent 35%)', pointerEvents: 'none' }} />
+          <div style={{ position: 'relative', zIndex: 1 }}>
           <p style={{ margin: 0, color: 'var(--brand)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em' }}>Demostración de valor</p>
           <h2 style={{ margin: 0 }}>Un flujo de diagnóstico completo, claro y listo para presentar</h2>
           <p style={{ color: 'var(--muted)', margin: 0, lineHeight: 1.8 }}>
@@ -61,8 +70,10 @@ export default function HomePage() {
               <p style={{ color: 'var(--muted)', marginBottom: 0 }}>Generado recientemente con una estructura ejecutiva y recomendaciones priorizadas.</p>
             </div>
           </div>
+          </div>
         </div>
       </section>
+      </div>
     </main>
   );
 }
